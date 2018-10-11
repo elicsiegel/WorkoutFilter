@@ -26,4 +26,9 @@ export default {
 </script>
 
 <style lang="scss">
+
+  .ui.centered.card {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
 </style>

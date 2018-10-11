@@ -46,4 +46,10 @@ export default {
     justify-content: center;
     display: flex;
   }
+
+  @media (max-width: 850px) {
+    .filter-wrapper {
+      width: 100%;
+    }
+  }
 </style>

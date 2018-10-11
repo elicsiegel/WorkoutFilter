@@ -22,13 +22,11 @@
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
 import FilterOptions from '@/components/FilterOptions';
 import Exercise from '@/components/Exercise';
 import { mapState, mapActions, mapMutations } from 'vuex';
@@ -36,7 +34,6 @@ import { mapState, mapActions, mapMutations } from 'vuex';
 export default {
   name: 'home',
   components: {
-    HelloWorld,
     FilterOptions,
     Exercise
   },
@@ -94,5 +91,12 @@ export default {
 
   .hide {
     display: none;
+  }
+
+  @media (max-width: 850px) {
+    .filters-wrapper {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 </style>
