@@ -3,6 +3,8 @@
     <div class="workout-wrapper">
       <div>
         <div class="title-wrapper">
+          <h1>Exercise Finder</h1>
+          <p>Click on a exercise filter to show exercises that involve that filter</p>
           <h2>You are currently filtering by:</h2>
           <h3>{{currentFilter}}</h3>
         </div>
@@ -11,22 +13,12 @@
           <FilterOptions filterType="Body Part" slug="bodyparts"/>
         </div>
       </div>
-      <div>
+      <div class="outer-exercise-wrapper">
         <h2>Matching Exercises</h2>
-        <div v-for="(exercise, index) in relevantExercises" v-bind:key="index">
-          <div class='ui centered card'>
-            <div class='content'>
-              <div class='header'>
-                {{ exercise.exercise_name }}
-              </div>
-              <div class='meta'>
-                Exercise Type: {{ exercise.ex_type }}
-              </div>
-              <div class='meta'>
-                Bodypart: {{ exercise.bodypart }}
-              </div>
-            </div>
-          </div>
+        <div class="exercise-wrapper">
+          <div class='ui centered card' v-bind:style="{ display: 'none' }"></div>
+          <exercise v-for="(exercise, index) in relevantExercises" v-bind:key="index" :exercise="exercise"></exercise>
+          <div class='ui centered card hide' v-bind:style="{ display: 'none' }"></div>
         </div>
       </div>
     </div>
@@ -38,13 +30,15 @@
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue';
 import FilterOptions from '@/components/FilterOptions';
+import Exercise from '@/components/Exercise';
 import { mapState, mapActions, mapMutations } from 'vuex';
 
 export default {
   name: 'home',
   components: {
     HelloWorld,
-    FilterOptions
+    FilterOptions,
+    Exercise
   },
   computed: {
     ...mapState([
@@ -86,7 +80,19 @@ export default {
 
   }
 
+  .outer-exercise-wrapper {
+    margin-top: 25px;
+  }
+  .exercise-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
   .filters-wrapper {
     display: flex;
+  }
+
+  .hide {
+    display: none;
   }
 </style>
