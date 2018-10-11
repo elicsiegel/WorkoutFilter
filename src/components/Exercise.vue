@@ -22,23 +22,8 @@ export default {
   props: {
     exercise: Object
   },
-  computed: {
-    ...mapState([
-      'exercises',
-      'currentFilter',
-    ]),
-    relevantExercises () {
-      return this.$store.state.exercises.filter(exercise => exercise.ex_type === this.$store.state.currentFilter || exercise.bodypart === this.$store.state.currentFilter)
-    }
-  },
-  methods: {
-
-  }
 };
 </script>
 
 <style lang="scss">
-  .ui.card {
-    margin: 10 !important;
-  }
 </style>
