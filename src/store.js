@@ -76,7 +76,9 @@ export default new Vuex.Store({
       state.currentFilter = filter;
     }
   },
-  actions: {
-
+  computed: {
+    relevantExercises () {
+      return store.state.exercises.filter(exercise => exercise.ex_type === store.state.currentFilter)
+    }
   },
 });
