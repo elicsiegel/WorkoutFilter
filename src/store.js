@@ -62,6 +62,7 @@ export default new Vuex.Store({
       {exercise_name: "Treadmill", ex_type: 'cardio', bodypart: 'Cardio'},
       {exercise_name: "Elliptical", ex_type: 'cardio', bodypart: 'Cardio'},
       {exercise_name: "Muscle Up", ex_type: 'lift', bodypart: 'Upper Body'},
+      {exercise_name: "Broad Jump", ex_type: 'plyo', bodypart: 'Plyo'},
     ],
     exercise_types: ["lift", "bodyweight", "cardio", "plyo"],
     bodyparts: ["Lower Body", "Upper Body", "Cardio", "Core", "Full Body", "Plyo"]

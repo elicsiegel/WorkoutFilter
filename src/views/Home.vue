@@ -6,14 +6,14 @@
           <h1>Exercise Finder</h1>
           <p>Click on a exercise filter to show exercises that involve that filter</p>
           <h2>You are currently filtering by:</h2>
-          <h3>{{currentFilter}}</h3>
+          <h3>{{capitalizedCurrentFilter}}</h3>
         </div>
         <div class="filters-wrapper">
           <FilterOptions filterType="Exercise Type" slug="exercise_types"/>
           <FilterOptions filterType="Body Part" slug="bodyparts"/>
         </div>
       </div>
-      <div class="outer-exercise-wrapper">
+      <div class="outer-exercise-wrapper" v-if="relevantExercises.length > 0">
         <h2>Matching Exercises</h2>
         <div class="exercise-wrapper">
           <div class='ui centered card' v-bind:style="{ display: 'none' }"></div>
@@ -43,7 +43,14 @@ export default {
       'currentFilter',
     ]),
     relevantExercises () {
-      return this.$store.state.exercises.filter(exercise => exercise.ex_type === this.$store.state.currentFilter || exercise.bodypart === this.$store.state.currentFilter)
+      return this
+            .$store
+            .state
+            .exercises
+            .filter(exercise => exercise.ex_type === this.$store.state.currentFilter || exercise.bodypart === this.$store.state.currentFilter)
+    },
+    capitalizedCurrentFilter () {
+      return this.currentFilter.charAt(0).toUpperCase() + this.currentFilter.substr(1);
     }
   },
   methods: {
