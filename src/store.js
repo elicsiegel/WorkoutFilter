@@ -6,7 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     title: "Find your WOD",
-    currentFilter: "None",
+    currentFilter: "Nothing",
     exercises: [
       {exercise_name: "Lunge", ex_type: 'lift', bodypart: 'Lower Body'},
       {exercise_name: "Squat", ex_type: 'lift', bodypart: 'Lower Body'},
